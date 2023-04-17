@@ -1,9 +1,9 @@
 """
 "8 Queens" Puzzle solver.
-By checking every position on table if it is under attack, the backtracking algorithm finds all the possible solutions for to the problem.
+By checking every position on table if under attack, the backtracking algorithm finds all the possible solutions to the problem.
 We initialize the problem by starting from position (0, 0) on the board.
-The method used for checking if a positio is not under attack is by storing all the attacked righ/left diagonals and all attacked rows/columns, 
-in a Bool array.
+The method used for checking if a position is not under attack is by storing all the attacked righ/left diagonals and all attacked rows/columns, 
+in Bool arrays; if under attack just set flag to True.
 
 """
 def eight_queen_solutions():
@@ -43,6 +43,7 @@ def eight_queen_solutions():
             if can_place_queen(col, row):
                 set_queen(row, col)
                 put_queens(row + 1)
+                # post recursive action
                 remove_queen(row, col)
 
     put_queens(0)
